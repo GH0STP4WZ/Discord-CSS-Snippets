@@ -74,7 +74,7 @@ To install this snippet, simply copy the following CSS into your Custom CSS file
 .messageListItem__5126c[data-is-self="true"]
 .message__5126c:not(:has(.quote__122e4))
 .embed__623de .gridContainer__623de {
-  transform: scaleX(-1);
+  justify-content: right;
   direction: ltr;
 }
 
