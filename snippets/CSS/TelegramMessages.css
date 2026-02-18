@@ -1,0 +1,253 @@
+/* ============================================================
+---------------------------------------------------------------
+          Telegram Styled Messages V2 - By GH0STP4WZ
+---------------------------------------------------------------
+============================================================ */
+
+/* ============================================================
+   Float Self Messages to the Right
+============================================================ */
+.messageListItem__5126c[data-is-self="true"]
+.message__5126c:not(.systemMessage__5126c) {
+  direction: rtl;
+  justify-self: right;
+}
+
+/* Reset direction for inner elements */
+.messageListItem__5126c[data-is-self="true"]
+.message__5126c:not(.systemMessage__5126c)
+:is(
+    .channelTextArea__5126c,
+    .nonVisualMediaItemContainer_f4758a,
+    .videoControls_cf09d8,
+    .messageContent_c19a55:not(.repliedTextContent_c19a55),
+    .reactions__23977) {
+  direction: ltr;
+  justify-self: right;
+}
+.messageListItem__5126c[data-is-self="true"] .header_c19a55 {
+  direction: ltr
+}
+/* Self avatar offsets */
+.messageListItem__5126c[data-is-self="true"]
+:is(.avatar_c19a55,
+    .StatusEverywhereV2-Avatar) {
+  right: -5px;
+}
+
+.messageListItem__5126c[data-is-self="true"]
+.avatarDecoration_c19a55 {
+  right: -10px;
+}
+
+/* Reply tweaks (self) */
+.messageListItem__5126c[data-is-self="true"]
+.repliedMessage_c19a55 {
+  direction: ltr;
+  left: 30px !important;
+}
+
+.messageListItem__5126c[data-is-self="true"]
+.repliedMessage_c19a55 .indicatorContainer {
+  transform: scaleX(-1);
+}
+
+/* Flip embeds (self, no quote) */
+.messageListItem__5126c[data-is-self="true"]
+.message__5126c:not(:has(.quote__122e4))
+.embed__623de,
+.messageListItem__5126c[data-is-self="true"]
+.message__5126c:not(:has(.quote__122e4))
+.embed__623de .gridContainer__623de {
+  transform: scaleX(-1);
+  direction: ltr;
+}
+
+/* ============================================================
+   General Message Layout
+============================================================ */
+.messageListItem__5126c:has(.mentioned__5126c) {
+  background: var(--message-mentioned-background-default);
+}
+
+.message__5126c {
+  white-space: pre;
+  overflow: visible;
+  background: none !important;
+  max-width: 100% !important;
+  width: fit-content;
+}
+
+.message__5126c:not(.hasReply_c19a55)
+.contents_c19a55 {
+  width: fit-content;
+}
+
+/* Bubble styling */
+.message__5126c:not(:has(.quote__122e4))
+.contents_c19a55:not(.repliedTextContent_c19a55):not(:has(.markup__75297:empty)) {
+  background-color: var(--app-frame-background);
+  border: 1px solid var(--background-accent);
+  border-radius: var(--radius-sm);
+  min-width: fit-content;
+  max-width: 100% !important;
+  padding: 5px !important;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+}
+
+/* Quote container */
+.message__5126c .container__122e4:has(.quote__122e4) {
+  direction: ltr;
+  background: var(--background-tertiary);
+  border: 1px solid var(--border-faint);
+  border-radius: var(--radius-sm);
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* Embed styling */
+.embed__623de {
+  border: 1px solid var(--border-faint);
+  border-left-width: 5px;
+  border-radius: var(--radius-sm);
+}
+
+/* Bubble corner logic */
+.messageListItem__5126c:not(:has(.systemMessage__5126c))
+.message__5126c:not(:has(.quote__122e4))
+.contents_c19a55 {
+  border-top-left-radius: var(--radius-sm);
+  border-top-right-radius: var(--radius-sm);
+}
+
+.messageListItem__5126c[data-is-self="true"]
+.message__5126c:not(:has(.quote__122e4))
+.contents_c19a55 {
+  border-top-right-radius: 0 !important;
+}
+
+.messageListItem__5126c[data-is-self="false"]
+.message__5126c:not(:has(.quote__122e4))
+.contents_c19a55 {
+  border-top-left-radius: 0 !important;
+}
+
+/* ============================================================
+   System Messages
+============================================================ */
+.systemMessage__5126c {
+  justify-self: center;
+  padding: 0 !important;
+  margin: 5px;
+}
+
+.systemMessage__5126c .timestamp_c19a55 {
+  transition: ease-in-out 0.5s;
+  scale: 0.8;
+  text-indent: 5px;
+}
+
+.systemMessage__5126c:not(:hover) .timestamp_c19a55 {
+  scale: 0;
+  text-indent: -150px;
+}
+
+.systemMessage__5126c
+:is(.welcomeCTA_f5d1e2, .reactions__23977) {
+  justify-self: center;
+}
+
+/* ============================================================
+   Avatar Styling
+============================================================ */
+.messageListItem__5126c .contents_c19a55 img.avatar_c19a55 {
+  z-index: 0;
+  content: var(--avatar-url-4096);
+  width: 55px;
+  height: 55px;
+  translate: -7px -40px;
+}
+
+.messageListItem__5126c .contents_c19a55 .avatarDecoration_c19a55 {
+  width: 65px !important;
+  height: 66px !important;
+  translate: -8px -40px !important;
+}
+
+.messageListItem__5126c .contents_c19a55 .messageContent_c19a55 {
+  flex: 2;
+  width: 100%;
+}
+
+.messageListItem__5126c .contents_c19a55 .header_c19a55 {
+  position: relative;
+  flex: 1;
+  z-index: 1;
+}
+
+/* ============================================================
+   Reply Quote Styling
+============================================================ */
+#app-mount .repliedMessage_c19a55 {
+  margin-bottom: -55px !important;
+  top: 50px;
+  background: var(--background-secondary-alt);
+  background-image: linear-gradient(
+    90deg,
+    var(--message-mentioned-background-default) 0%,
+    var(--background-secondary-alt) 30%,
+    var(--background-secondary-alt) 100%
+  );
+  border-left: 1px solid var(--icon-feedback-warning);
+  max-width: calc(100% - 100px) !important;
+  min-width: fit-content;
+  margin: 0 20px 0 5px;
+  padding: 3px 5px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-table;
+}
+
+#app-mount [data-is-self="true"] .repliedMessage_c19a55 {
+  margin-left: -25px;
+  margin-right: 50px;
+}
+
+#app-mount .repliedMessage_c19a55
+:is(.repliedMessageClickableSpine_c19a55) {
+  display: none;
+}
+
+#app-mount .repliedMessage_c19a55
+:is(.messageContent_c19a55,
+    .messageContent_c19a55 .inline) {
+  white-space: normal !important;
+}
+
+#app-mount .repliedMessage_c19a55 .repliedTextContentTrailingIcon_c19a55 {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+#app-mount .repliedMessage_c19a55::before {
+  content: none;
+}
+
+#app-mount .repliedMessage_c19a55::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -4px;
+  z-index: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-tertiary);
+  border-bottom: none;
+  border-right: none;
+}
+#app-mount .repliedMessage_c19a55 + .contents_c19a55 .header_c19a55 {
+  margin-bottom: 50px;
+}
